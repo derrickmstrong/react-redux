@@ -94,8 +94,21 @@ const rootReducer = combineReducers({
   cake: cakeReducer,
   iceCream: iceCreamReducer,
 });
+
+// import/require logger middleware
+/**
+ * 4 Steps to apply Middleware (see below)
+ **/
+// Step 0) npm i redux-logger
+// Step 1) Import Middleware
+const reduxLogger = require("redux-logger");
+const applyMiddleware = redux.applyMiddleware;
+const logger = reduxLogger.createLogger();
+
+// Step 2) Pass in applyMiddleware middleware as the 2nd parameter to store
+// Step 3) Add logger as the middleware being passed into applyMiddleware. Note: you can add as many middlewares here as required for app
 // UPDATE STORE FOR MULTIPLE REDUCERS
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(logger));
 
 // Note: store holds the application state
 // const store = createStore(reducer);
@@ -105,8 +118,9 @@ console.log("Initial State", store.getState());
 
 // Register + Unregister listeners
 const unsubscribe = store.subscribe(() => {
-  console.log("Updated State", store.getState());
-});
+  // Console log below no longer needed now that we have added the redux-logger middleware
+  // console.log("Updated State", store.getState());
+}); 
 
 // Invoke the action creator in order to return an action
 // Allow store to be updated
