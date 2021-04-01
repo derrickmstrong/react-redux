@@ -95,10 +95,10 @@ const rootReducer = combineReducers({
   iceCream: iceCreamReducer,
 });
 
-// import/require logger middleware
 /**
  * 4 Steps to apply Middleware (see below)
  **/
+// import/require logger middleware
 // Step 0) npm i redux-logger
 // Step 1) Import Middleware
 const reduxLogger = require("redux-logger");
