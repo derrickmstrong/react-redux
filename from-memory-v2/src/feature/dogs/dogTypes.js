@@ -1,0 +1,1 @@
+export const ADOPT_DOG = "ADOPT DOG";
