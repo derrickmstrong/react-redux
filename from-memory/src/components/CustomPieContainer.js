@@ -12,8 +12,8 @@ function CustomPieContainer() {
 
   return (
     <div>
-      <h1>Custom Number of Pies</h1>
-      <h3>{outOfStock ? "Sorry, we are out of pies." : numOfPie}</h3>
+      <h1>Custom Pies</h1>
+      <h3>{outOfStock ? "Sorry, we are out of pies." : "Total Available: " + numOfPie}</h3>
       <input
         type="number"
         min="1"
@@ -23,7 +23,7 @@ function CustomPieContainer() {
       />
       {outOfStock ? (
         <button onClick={() => dispatch(buyPie(number))} disabled>
-          <span className="sold-out">Add {number} Pie to Cart</span>
+          <span className="sold-out">Add Pie to Cart</span>
         </button>
       ) : (
         <button onClick={() => dispatch(buyPie(number))}>

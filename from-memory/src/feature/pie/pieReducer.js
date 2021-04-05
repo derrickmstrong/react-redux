@@ -8,7 +8,7 @@ const initialState = {
 const pieReducer = (state = initialState, action) => {
   switch (action.type) {
     case BUY_PIE:
-      return state.numOfPie < 1
+      return state.numOfPie <= 1
         ? {
             ...state,
             numOfPie: 0,

@@ -41,4 +41,5 @@
   text-decoration: line-through;
   color: red;
   font-weight: bold;
+  cursor: no-drop;
 }
