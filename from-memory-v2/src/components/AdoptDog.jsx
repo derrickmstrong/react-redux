@@ -5,7 +5,7 @@ import { adoptDog } from "../feature";
 function DogContainer() {
   const [number, setNumber] = useState(1);
 
-  const numOfDogs = useSelector((state) => state.dogs.numOfDogs);
+  const numOfDogs = useSelector((state) => state.dog.numOfDogs);
 
   const dispatch = useDispatch();
 

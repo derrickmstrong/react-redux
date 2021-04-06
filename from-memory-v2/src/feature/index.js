@@ -1,1 +1,3 @@
-export { adoptDog } from "./dogs/dogActions";
+// export actions
+export { adoptDog } from "./dog/dogActions";
+export * from "./user/userActions";
