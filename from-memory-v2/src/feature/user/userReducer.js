@@ -5,8 +5,8 @@ import {
 } from "./userTypes";
 
 const initialState = {
-    loading: false,
-    users: [],
+    isLoading: false,
+    data: [],
     error: '',
 }
 
@@ -15,18 +15,18 @@ export const userReducer = (state = initialState, action) => {
       case FETCH_USER_REQUEST:
         return {
           ...state,
-          loading: true,
+          isLoading: true,
         };
       case FETCH_USER_SUCCESS:
         return {
-          loading: false,
-          users: action.payload,
+          isLoading: false,
+          data: action.payload,
           error: "",
         };
       case FETCH_USER_FAILURE:
         return {
-          loading: false,
-          users: [],
+          isLoading: false,
+          data: [],
           error: action.payload,
         };
       default:

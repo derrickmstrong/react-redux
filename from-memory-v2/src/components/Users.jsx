@@ -3,25 +3,25 @@ import { fetchUsers } from "../feature";
 import { useSelector, useDispatch } from "react-redux";
 
 function Users() {
-  const loading = useSelector((state) => state.user.loading);
-  const user = useSelector((state) => state.user.users);
+  const isLoading = useSelector((state) => state.user.isLoading);
+  const user = useSelector((state) => state.user.data);
   const error = useSelector((state) => state.user.error);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchUsers());
     return () => {};
-  }, []);
+  }, [dispatch]);
 
-  return loading ? (
-    <h2>Loading...</h2>
+  return isLoading ? (
+    <h2>Loading Users...</h2>
   ) : error ? (
     <h2>{error}</h2>
   ) : (
     <div>
       <h2>Users List</h2>
       <div>
-        {user.map(({ name, email }, id) => (
+        {user && user.map(({ name, email }, id) => (
           <p key={id}>
             {name} - {email}
           </p>
