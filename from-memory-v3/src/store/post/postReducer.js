@@ -1,8 +1,8 @@
 import {
-  FETCH_USER_REQUEST,
-  FETCH_USER_SUCCESS,
-  FETCH_USER_FAILURE,
-} from "./userTypes";
+  FETCH_POST_REQUEST,
+  FETCH_POST_SUCCESS,
+  FETCH_POST_FAILURE,
+} from "./postTypes";
 
 const initialState = {
   isLoading: false,
@@ -10,20 +10,20 @@ const initialState = {
   error: "",
 };
 
-export const userReducer = (state = initialState, action) => {
+export const postReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_USER_REQUEST:
+    case FETCH_POST_REQUEST:
       return {
         ...state,
         isLoading: true,
       };
-    case FETCH_USER_SUCCESS:
+    case FETCH_POST_SUCCESS:
       return {
         isLoading: false,
         data: action.payload,
         error: "",
       };
-    case FETCH_USER_FAILURE:
+    case FETCH_POST_FAILURE:
       return {
         isLoading: false,
         data: [],
